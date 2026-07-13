@@ -163,15 +163,20 @@
             <li><strong>Instant Validation:</strong> Prove demand and secure early design partners before the sprint ends.</li>
         </ul>
 
-        <!-- CHANGE: Replace the 'href' below with your actual Stripe Payment Link, Calendly link, or Typeform link -->
-        <!-- Example: href="https://buy.stripe.com/test_12345" -->
-        <a href="mailto:your-email@example.com?subject=I need a Sprint Lead Sheet" class="cta-button" id="buyButton">
-            Get 20 Leads for $99
+        <!-- CHANGE: The Barter Proposition -->
+        <p class="highlight" style="margin-top: 2rem; border-left: 4px solid var(--accent-color); padding-left: 1rem;">
+            THE TRADE: I'm not charging cash for this cohort. Let's barter. I give you the leads, you give me 1 hour of your specialized skill (code review, UX teardown, API help) or lifetime beta access to your app.
+        </p>
+
+        <!-- CHANGE: Replace the 'href' below with an email link or a Google/Typeform to collect trade proposals -->
+        <a href="mailto:your-email@example.com?subject=Sprint Lead Sheet Barter Proposal" class="cta-button" id="buyButton">
+            Propose a Barter
         </a>
 
-        <!-- CHANGE: Risk reversal / Value frame -->
+        <!-- CHANGE: Risk reversal / Value frame for barter -->
         <p class="guarantee">
-            Land just <em>one</em> early adopter, and this micro-investment pays for itself instantly. 
+            Validation shouldn't drain your runway. Let's trade value for value. 
+            <br>
             <!-- CHANGE: Add your name or handle -->
             Built by [Your Name/Handle].
         </p>
@@ -192,13 +197,13 @@
             button.style.transform = 'scale(1)';
             // Make sure this matches your original button text
             setTimeout(() => {
-                button.innerText = 'Get 20 Leads for $99';
+                button.innerText = 'Propose a Barter';
             }, 500);
         });
 
         button.addEventListener('mouseleave', () => {
             button.style.transform = 'scale(1)';
-            button.innerText = 'Get 20 Leads for $99';
+            button.innerText = 'Propose a Barter';
         });
     </script>
 </body>
