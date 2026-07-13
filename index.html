@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CHANGE: Update the title of the page -->
+    <title>Founder's Sprint Lead Sheet | Multiverse Edition</title>
+    
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            /* CHANGE: You can change these colors to fit your brand. 
+               Currently set to Cyberpunk Yellow and Pitch Black */
+            --bg-color: #000000;
+            --text-color: #f0f0f0;
+            --accent-color: #FCEE0A; /* Cyberpunk Yellow */
+            --accent-hover: #e5d809;
+            --font-stack: "Courier New", Courier, ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* Container for the one-pager */
+        .terminal-container {
+            max-width: 650px;
+            width: 100%;
+            border: 2px solid var(--accent-color);
+            padding: 2.5rem;
+            position: relative;
+            background: linear-gradient(180deg, rgba(252, 238, 10, 0.05) 0%, rgba(0,0,0,0) 100%);
+            box-shadow: 0 0 20px rgba(252, 238, 10, 0.15);
+        }
+
+        /* Glitchy/Loud Header */
+        h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        /* Subheader */
+        .cohort-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 0.2rem 0.5rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        /* Typography */
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* List Styling */
+        ul {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        ul li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* The loud CTA Button */
+        .cta-button {
+            display: block;
+            width: 100%;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            text-align: center;
+            padding: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 2px solid var(--accent-color);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        /* Footer / Guarantee */
+        .guarantee {
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .terminal-container { padding: 1.5rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="terminal-container">
+        
+        <!-- CHANGE: Headline -->
+        <h1>Stop building in a vacuum.</h1>
+        
+        <!-- CHANGE: Cohort specific shoutout. Creates immediate trust. -->
+        <div class="cohort-badge">MULTIVERSE SCHOOL FOUNDERS ONLY</div>
+
+        <!-- CHANGE: The core problem/pain point -->
+        <p>You're a technical builder. You can ship a feature in hours, but dread cold outreach. Don't let your sprint deadline pass without talking to real buyers.</p>
+
+        <!-- CHANGE: The solution -->
+        <p>Get the <span class="highlight">Founder's Sprint Lead Sheet</span>. I use bespoke OSINT (Github signals, stack changes, builtwith) to find the exact companies experiencing the problem your new product solves right now.</p>
+
+        <!-- CHANGE: The deliverables list -->
+        <ul>
+            <li><strong>15-25 Warm Context Leads:</strong> Hand-mined specifically for your sprint project.</li>
+            <li><strong>No Cold-Email Paralysis:</strong> Includes 1-2 sentence, peer-to-peer technical hooks you can copy-paste.</li>
+            <li><strong>Instant Validation:</strong> Prove demand and secure early design partners before the sprint ends.</li>
+        </ul>
+
+        <!-- CHANGE: Replace the 'href' below with your actual Stripe Payment Link, Calendly link, or Typeform link -->
+        <!-- Example: href="https://buy.stripe.com/test_12345" -->
+        <a href="mailto:your-email@example.com?subject=I need a Sprint Lead Sheet" class="cta-button" id="buyButton">
+            Get 20 Leads for $99
+        </a>
+
+        <!-- CHANGE: Risk reversal / Value frame -->
+        <p class="guarantee">
+            Land just <em>one</em> early adopter, and this micro-investment pays for itself instantly. 
+            <!-- CHANGE: Add your name or handle -->
+            Built by [Your Name/Handle].
+        </p>
+
+    </main>
+
+    <script>
+        // Inline JS: Adds a slight interaction effect to the button for the "loud" vibe.
+        const button = document.getElementById('buyButton');
+        
+        button.addEventListener('mousedown', () => {
+            button.style.transform = 'scale(0.98)';
+            // CHANGE: You can change this loading text to anything you want
+            button.innerText = 'INITIALIZING PROTOCOL...';
+        });
+
+        button.addEventListener('mouseup', () => {
+            button.style.transform = 'scale(1)';
+            // Make sure this matches your original button text
+            setTimeout(() => {
+                button.innerText = 'Get 20 Leads for $99';
+            }, 500);
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'scale(1)';
+            button.innerText = 'Get 20 Leads for $99';
+        });
+    </script>
+</body>
+</html>
