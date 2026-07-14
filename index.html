@@ -133,6 +133,56 @@
             margin-top: 1.5rem;
         }
 
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--bg-color);
+            border: 2px solid var(--accent-color);
+            padding: 2rem;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(252, 238, 10, 0.15);
+        }
+        
+        .close-btn {
+            margin-top: 1.5rem;
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        
+        .close-btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .terminal-container { padding: 1.5rem; }
@@ -169,10 +219,10 @@
             THE TRADE: No cash. I find your leads. You test my app and give honest feedback.
         </p>
 
-        <!-- CHANGE: Replace the 'href' below with an email link or a Google/Typeform to collect trade proposals -->
-        <a href="mailto:your-email@example.com?subject=App Testing Trade Proposal" class="cta-button" id="buyButton">
+        <!-- CTA Button triggers modal instead of email -->
+        <button class="cta-button" id="buyButton">
             Trade Leads for Testing
-        </a>
+        </button>
 
         <!-- CHANGE: Risk reversal / Value frame for barter -->
         <p class="guarantee">
@@ -184,9 +234,20 @@
 
     </main>
 
+    <!-- Modal Popup Structure -->
+    <div class="modal-overlay" id="statusModal">
+        <div class="modal-content">
+            <h2 style="color: var(--accent-color); margin-bottom: 1rem; font-size: 1.5rem;">SYSTEM BUILDING</h2>
+            <p>Thanks for your interest.<br><br>Still building... will be working soon.</p>
+            <button class="close-btn" id="closeModal">ACKNOWLEDGE</button>
+        </div>
+    </div>
+
     <script>
         // Inline JS: Adds a slight interaction effect to the button for the "loud" vibe.
         const button = document.getElementById('buyButton');
+        const modal = document.getElementById('statusModal');
+        const closeBtn = document.getElementById('closeModal');
         
         button.addEventListener('mousedown', () => {
             button.style.transform = 'scale(0.98)';
@@ -196,15 +257,30 @@
 
         button.addEventListener('mouseup', () => {
             button.style.transform = 'scale(1)';
-            // Make sure this matches your original button text
-            setTimeout(() => {
-                button.innerText = 'Trade Leads for Testing';
-            }, 500);
         });
 
         button.addEventListener('mouseleave', () => {
             button.style.transform = 'scale(1)';
             button.innerText = 'Trade Leads for Testing';
+        });
+
+        // Show modal on click
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            button.innerText = 'Trade Leads for Testing';
+            modal.classList.add('active');
+        });
+
+        // Hide modal on close button
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+        
+        // Hide modal if clicked outside the box
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
         });
     </script>
 </body>
